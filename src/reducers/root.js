@@ -3,18 +3,18 @@ import { handleActions } from "redux-actions";
 import { CREATE_DECK } from "../actions/actionNames";
 
 const defaultState = {
-  cards: []
+  decks: []
 };
 
 const handlers = {
   [CREATE_DECK]: (state, action) => ({
     ...state,
-    cards: [
+    decks: [
       {
         name: action.payload.name,
-        questions: []
+        cards: []
       }
-    ].concat(state.cards)
+    ].concat(state.decks)
   })
 };
 

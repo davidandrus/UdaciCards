@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
+import { connect } from "react-redux";
 
 import Deck from "../components/Deck";
 import Button from "../components/Button";
@@ -13,36 +14,36 @@ const styles = StyleSheet.create({
   }
 });
 
-const decks = [
-  {
-    name: "Deck 1",
-    cards: [
-      {
-        question: "Question One",
-        answer: "Answer One"
-      },
-      {
-        question: "Question Two",
-        answer: "Answer Two"
-      }
-    ]
-  },
-  {
-    name: "Deck 2",
-    cards: [
-      {
-        question: "Question One",
-        answer: "Answer One"
-      },
-      {
-        question: "Question Two",
-        answer: "Answer Two"
-      }
-    ]
-  }
-];
+// const decks = [
+//   {
+//     name: "Deck 1",
+//     cards: [
+//       {
+//         question: "Question One",
+//         answer: "Answer One"
+//       },
+//       {
+//         question: "Question Two",
+//         answer: "Answer Two"
+//       }
+//     ]
+//   },
+//   {
+//     name: "Deck 2",
+//     cards: [
+//       {
+//         question: "Question One",
+//         answer: "Answer One"
+//       },
+//       {
+//         question: "Question Two",
+//         answer: "Answer Two"
+//       }
+//     ]
+//   }
+// ];
 
-const Decks = ({ navigation }) => (
+const Decks = ({ navigation, decks }) => (
   <View style={styles.view}>
     <View style={styles.decks}>
       {decks.map(deck => <Deck key={deck.name} {...deck} />)}
@@ -54,6 +55,10 @@ const Decks = ({ navigation }) => (
   </View>
 );
 
-export default Decks;
+const mapStateToProps = ({ decks }) => ({
+  decks
+});
+
+export default connect(mapStateToProps)(Decks);
 
 // @TODO - add flow types for decks

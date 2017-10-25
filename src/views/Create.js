@@ -26,10 +26,8 @@ class Create extends Component {
   };
 
   _createDeck = () => {
-    this.props.actions.createDeck({
-      name: this.state.text
-    });
-
+    this.props.actions.createDeck(this.state.text);
+    this.props.navigation.goBack();
     // navigate to Decks screen
   };
 
