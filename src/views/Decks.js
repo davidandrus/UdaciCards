@@ -1,7 +1,8 @@
 import React from "react";
-import { View, StyleSheet, TouchableHighlight, Text } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 import Deck from "../components/Deck";
+import Button from "../components/Button";
 
 const styles = StyleSheet.create({
   view: {
@@ -9,20 +10,6 @@ const styles = StyleSheet.create({
   },
   decks: {
     marginBottom: 20
-  },
-  button: {
-    backgroundColor: "orange",
-    height: 40,
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: 150
-  },
-  touchable: {
-    height: 40
-  },
-  buttonText: {
-    lineHeight: 40,
-    textAlign: "center"
   }
 });
 
@@ -60,18 +47,10 @@ const Decks = ({ navigation }) => (
     <View style={styles.decks}>
       {decks.map(deck => <Deck key={deck.name} {...deck} />)}
     </View>
-    <View style={styles.button}>
-      <TouchableHighlight
-        style={styles.touchable}
-        underlayColor={"blue"}
-        onPress={() => {
-          console.log({ navigation });
-          return navigation.navigate("Create");
-        }}
-      >
-        <Text style={styles.buttonText}>Create New Deck</Text>
-      </TouchableHighlight>
-    </View>
+    <Button
+      onPress={() => navigation.navigate("Create")}
+      text="Create New Deck"
+    />
   </View>
 );
 
