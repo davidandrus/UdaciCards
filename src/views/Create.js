@@ -18,17 +18,22 @@ const styles = StyleSheet.create({
 class Create extends Component {
   constructor(...args) {
     super(...args);
-    this.state = {
-      text: ""
-    };
+    this.state = { text: "" };
   }
 
   _handleTextChange = text => {
     this.setState({ text });
   };
 
+  _createDeck = () => {
+    this.props.actions.createDeck({
+      name: this.state.text
+    });
+
+    // navigate to Decks screen
+  };
+
   render() {
-    const { actions: { createDeck } } = this.props;
     return (
       <View>
         <Text>Create Screen Goes Here</Text>
@@ -37,7 +42,7 @@ class Create extends Component {
           placeholder="Type your text here"
           style={styles.textInput}
         />
-        <Button onPress={createDeck} text="Create Deck" />
+        <Button onPress={this._createDeck} text="Create Deck" />
       </View>
     );
   }
