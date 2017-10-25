@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
+import { createDeck } from "../actions";
 import Button from "../components/Button";
 
 const styles = StyleSheet.create({
@@ -25,6 +28,7 @@ class Create extends Component {
   };
 
   render() {
+    const { actions: { createDeck } } = this.props;
     return (
       <View>
         <Text>Create Screen Goes Here</Text>
@@ -33,11 +37,15 @@ class Create extends Component {
           placeholder="Type your text here"
           style={styles.textInput}
         />
-        <Button onPress={() => {}} text="Create Deck" />
+        <Button onPress={createDeck} text="Create Deck" />
       </View>
     );
   }
 }
 
-export default Create;
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({ createDeck }, dispatch)
+});
+
+export default connect(undefined, mapDispatchToProps)(Create);
 // @TODO - abstract button
