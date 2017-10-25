@@ -1,36 +1,20 @@
 import React from "react";
+import { StackNavigator } from "react-navigation";
 
 import Decks from "./views/Decks";
+import Deck from "./views/Deck";
+import Create from "./views/Create";
 
-const decks = [
-  {
-    name: "Deck 1",
-    cards: [
-      {
-        question: "Question One",
-        answer: "Answer One"
-      },
-      {
-        question: "Question Two",
-        answer: "Answer Two"
-      }
-    ]
+const Navigator = StackNavigator({
+  Home: {
+    screen: Decks
   },
-  {
-    name: "Deck 2",
-    cards: [
-      {
-        question: "Question One",
-        answer: "Answer One"
-      },
-      {
-        question: "Question Two",
-        answer: "Answer Two"
-      }
-    ]
+  Deck: {
+    screen: Deck
+  },
+  Create: {
+    screen: Create
   }
-];
+});
 
-const App = () => <Decks decks={decks} />;
-
-export default App;
+export default Navigator;
