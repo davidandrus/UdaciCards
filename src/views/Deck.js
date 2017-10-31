@@ -1,10 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Text, View } from "react-native";
 
-const Deck = () => (
-  <View>
-    <Text>Deck Screen Goes Here</Text>
-  </View>
-);
+import Button from "../components/Button";
 
-export default Deck;
+const Deck = ({ name, cards }) => {
+  return (
+    <View>
+      <Text>{name}</Text>
+      <Text>
+        {/* @TODO this is redundant, should move into shared helper or something */}
+        {cards.length} {cards.length === 1 ? "card" : "cards"}
+      </Text>
+      <Button text="Add Card" onPress={() => {}} />
+      <Button text="Start Quiz" onPress={() => {}} />
+    </View>
+  );
+};
+
+const mapStateToProps = (state, { navigation }) => {
+  console.log("mapping state to props", { state, navigation });
+  return {
+    ...navigation.state.params.deck
+  };
+};
+
+export default connect(mapStateToProps)(Deck);

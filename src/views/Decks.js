@@ -17,10 +17,11 @@ const styles = StyleSheet.create({
 const Decks = ({ navigation, decks }) => (
   <View style={styles.view}>
     <View style={styles.decks}>
-      {decks.map(deck => (
+      {decks.map((deck, index) => (
         <Deck
           key={deck.name}
-          onPress={() => navigation.navigate("Deck")}
+          //@TODO should propbably update to use an ID instead
+          onPress={() => navigation.navigate("Deck", { deck })}
           {...deck}
         />
       ))}
