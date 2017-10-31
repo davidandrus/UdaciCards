@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "orange",
     height: 40,
+    marginBottom: 20,
     marginLeft: "auto",
     marginRight: "auto",
     width: 150

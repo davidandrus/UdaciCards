@@ -7,6 +7,7 @@ import Decks from "./views/Decks";
 import Deck from "./views/Deck";
 import CreateDeck from "./views/CreateDeck";
 import CreateCard from "./views/CreateCard";
+import Quiz from "./views/Quiz";
 
 const Navigator = StackNavigator({
   Home: {
@@ -20,6 +21,9 @@ const Navigator = StackNavigator({
   },
   CreateCard: {
     screen: CreateCard
+  },
+  Quiz: {
+    screen: Quiz
   }
 });
 
