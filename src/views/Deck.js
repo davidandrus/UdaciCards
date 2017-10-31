@@ -19,9 +19,10 @@ const Deck = ({ name, cards, onAddClick }) => {
 };
 
 const mapStateToProps = (state, { navigation }) => {
+  const deckId = navigation.state.params.id;
   return {
-    ...navigation.state.params.deck,
-    onAddClick: () => navigation.navigate("CreateCard")
+    ...state.decks.find(deck => deck.id === deckId),
+    onAddClick: () => navigation.navigate("CreateCard", { id: deckId })
   };
 };
 

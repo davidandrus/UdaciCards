@@ -26,7 +26,8 @@ class Create extends Component {
 
   _createCard = () => {
     const { question, answer } = this.state;
-    this.props.createCard({ question, answer });
+    const { id } = this.props;
+    this.props.createCard({ id, question, answer });
     this.props.navigateToDeck();
   };
 
@@ -49,6 +50,7 @@ class Create extends Component {
 }
 
 const mapStateToProps = (state, { navigation }) => ({
+  id: navigation.state.params.id,
   navigateToDeck: navigation.goBack
 });
 
