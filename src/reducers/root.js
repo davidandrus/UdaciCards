@@ -1,3 +1,4 @@
+import uuid from "uuid/v1";
 import { handleActions } from "redux-actions";
 
 import { CREATE_DECK } from "../actions/actionNames";
@@ -11,6 +12,7 @@ const handlers = {
     ...state,
     decks: [
       {
+        id: uuid(),
         name: action.payload.name,
         cards: []
       }
