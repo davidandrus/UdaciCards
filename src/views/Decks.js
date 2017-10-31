@@ -14,39 +14,16 @@ const styles = StyleSheet.create({
   }
 });
 
-// const decks = [
-//   {
-//     name: "Deck 1",
-//     cards: [
-//       {
-//         question: "Question One",
-//         answer: "Answer One"
-//       },
-//       {
-//         question: "Question Two",
-//         answer: "Answer Two"
-//       }
-//     ]
-//   },
-//   {
-//     name: "Deck 2",
-//     cards: [
-//       {
-//         question: "Question One",
-//         answer: "Answer One"
-//       },
-//       {
-//         question: "Question Two",
-//         answer: "Answer Two"
-//       }
-//     ]
-//   }
-// ];
-
 const Decks = ({ navigation, decks }) => (
   <View style={styles.view}>
     <View style={styles.decks}>
-      {decks.map(deck => <Deck key={deck.name} {...deck} />)}
+      {decks.map(deck => (
+        <Deck
+          key={deck.name}
+          onPress={() => navigation.navigate("Deck")}
+          {...deck}
+        />
+      ))}
     </View>
     <Button
       onPress={() => navigation.navigate("Create")}
