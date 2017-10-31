@@ -1,54 +1,58 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import { createDeck } from "../actions";
+import { createCard } from "../actions";
 import Button from "../components/Button";
-
-// const styles = StyleSheet.create({
-//   textInput: {
-//     padding: 5,
-//     margin: 5,
-//     borderWidth: 1,
-//     borderColor: "black"
-//   }
-// });
+import TextInput from "../components/TextInput";
 
 class Create extends Component {
-  // constructor(...args) {
-  //   super(...args);
-  //   this.state = { text: "" };
-  // }
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      question: "",
+      answer: ""
+    };
+  }
 
-  // _handleTextChange = text => {
-  //   this.setState({ text });
-  // };
+  _handleQuestionChange = question => {
+    this.setState({ question });
+  };
 
-  // _createDeck = () => {
-  //   this.props.actions.createDeck(this.state.text);
-  //   this.props.navigation.goBack();
-  //   // navigate to Decks screen
-  // };
+  _handleAnswerChange = answer => {
+    this.setState({ answer });
+  };
+
+  _createCard = () => {
+    const { question, answer } = this.state;
+    this.props.createCard({ question, answer });
+    this.props.navigateToDeck();
+  };
 
   render() {
-    return <Text>Card Edit here</Text>;
-    //   /* return (
-    //   <View>
-    //     <Text>Create Screen Goes Here</Text>
-    //     <TextInput
-    //       onChangeText={this._handleTextChange}
-    //       placeholder="Type your text here"
-    //       style={styles.textInput}
-    //     />
-    //     <Button onPress={this._createDeck} text="Create Deck" />
-    //   </View>
-    // ); */
+    return (
+      <View>
+        <Text>Create new card</Text>
+        <TextInput
+          onChangeText={this._handleQuestionChange}
+          placeholder="Question"
+        />
+        <TextInput
+          onChangeText={this._handleAnswerChange}
+          placeholder="Answer"
+        />
+        <Button onPress={this._createCard} text="Create Card" />
+      </View>
+    );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ createDeck }, dispatch)
+const mapStateToProps = (state, { navigation }) => ({
+  navigateToDeck: navigation.goBack
 });
 
-export default connect(undefined, mapDispatchToProps)(Create);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ createCard }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Create);

@@ -26,7 +26,7 @@ class Create extends Component {
     console.log("rendering", this.props);
     return (
       <View>
-        <Text>Create Screen Goes Here</Text>
+        <Text>Create a new Deck</Text>
         <TextInput
           onChangeText={this._handleTextChange}
           placeholder="Name of new Deck"

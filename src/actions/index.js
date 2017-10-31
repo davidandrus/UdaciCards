@@ -1,8 +1,13 @@
-import { CREATE_DECK } from "./actionNames";
+import { CREATE_DECK, CREATE_CARD } from "./actionNames";
 
 const createDeck = name => ({
   type: CREATE_DECK,
   payload: { name }
 });
 
-export { createDeck };
+const createCard = payload => ({
+  type: CREATE_CARD,
+  payload
+});
+
+export { createDeck, createCard };
