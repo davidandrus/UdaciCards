@@ -5,7 +5,8 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Decks from "./views/Decks";
 import Deck from "./views/Deck";
-import Create from "./views/Create";
+import CreateDeck from "./views/CreateDeck";
+import CreateCard from "./views/CreateCard";
 
 const Navigator = StackNavigator({
   Home: {
@@ -14,8 +15,11 @@ const Navigator = StackNavigator({
   Deck: {
     screen: Deck
   },
-  Create: {
-    screen: Create
+  CreateDeck: {
+    screen: CreateDeck
+  },
+  CreateCard: {
+    screen: CreateCard
   }
 });
 

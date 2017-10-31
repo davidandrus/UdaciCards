@@ -1,19 +1,11 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Text, View } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import { createDeck } from "../actions";
 import Button from "../components/Button";
-
-const styles = StyleSheet.create({
-  textInput: {
-    padding: 5,
-    margin: 5,
-    borderWidth: 1,
-    borderColor: "black"
-  }
-});
+import TextInput from "../components/TextInput";
 
 class Create extends Component {
   constructor(...args) {
@@ -37,8 +29,7 @@ class Create extends Component {
         <Text>Create Screen Goes Here</Text>
         <TextInput
           onChangeText={this._handleTextChange}
-          placeholder="Type your text here"
-          style={styles.textInput}
+          placeholder="Name of new Deck"
         />
         <Button onPress={this._createDeck} text="Create Deck" />
       </View>
@@ -51,4 +42,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(undefined, mapDispatchToProps)(Create);
-// @TODO - abstract button

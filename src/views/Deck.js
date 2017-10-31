@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 
 import Button from "../components/Button";
 
-const Deck = ({ name, cards }) => {
+const Deck = ({ name, cards, onAddClick }) => {
   return (
     <View>
       <Text>{name}</Text>
@@ -12,16 +12,16 @@ const Deck = ({ name, cards }) => {
         {/* @TODO this is redundant, should move into shared helper or something */}
         {cards.length} {cards.length === 1 ? "card" : "cards"}
       </Text>
-      <Button text="Add Card" onPress={() => {}} />
+      <Button text="Add Card" onPress={onAddClick} />
       <Button text="Start Quiz" onPress={() => {}} />
     </View>
   );
 };
 
 const mapStateToProps = (state, { navigation }) => {
-  console.log("mapping state to props", { state, navigation });
   return {
-    ...navigation.state.params.deck
+    ...navigation.state.params.deck,
+    onAddClick: () => navigation.navigate("CreateCard")
   };
 };
 

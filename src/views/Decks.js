@@ -27,7 +27,7 @@ const Decks = ({ navigation, decks }) => (
       ))}
     </View>
     <Button
-      onPress={() => navigation.navigate("Create")}
+      onPress={() => navigation.navigate("CreateDeck")}
       text="Create New Deck"
     />
   </View>
