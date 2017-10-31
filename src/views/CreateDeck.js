@@ -18,12 +18,12 @@ class Create extends Component {
   };
 
   _createDeck = () => {
-    this.props.actions.createDeck(this.state.text);
-    this.props.navigation.goBack();
-    // navigate to Decks screen
+    this.props.createDeck(this.state.text);
+    this.props.navigateToDecks();
   };
 
   render() {
+    console.log("rendering", this.props);
     return (
       <View>
         <Text>Create Screen Goes Here</Text>
@@ -37,8 +37,11 @@ class Create extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ createDeck }, dispatch)
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ createDeck }, dispatch);
+
+const mapStateToProps = (state, { navigation }) => ({
+  navigateToDecks: navigation.goBack
 });
 
-export default connect(undefined, mapDispatchToProps)(Create);
+export default connect(mapStateToProps, mapDispatchToProps)(Create);
