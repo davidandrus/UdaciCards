@@ -40,7 +40,14 @@ const Quiz = ({
           <Button onPress={finishQuiz} text="Go back to deck" />
         </View>
       )}
-      {showQuestion && <Text>{question}</Text>}
+      {showQuestion && (
+        <View>
+          <Text>
+            Question {slide} of {questionCount}
+          </Text>
+          <Text>{question}</Text>
+        </View>
+      )}
       {showAnswerButton && <Button text="Show Answer" onPress={showAnswer} />}
       {answerVisible && (
         <View>
