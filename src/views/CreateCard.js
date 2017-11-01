@@ -7,6 +7,7 @@ import { createCard } from "../actions";
 import Button from "../components/Button";
 import TextInput from "../components/TextInput";
 import ViewWrapper from "../components/ViewWrapper";
+import Label from "../components/Label";
 
 class Create extends Component {
   constructor(...args) {
@@ -35,14 +36,15 @@ class Create extends Component {
   render() {
     return (
       <ViewWrapper>
-        <Text>Create new card</Text>
+        <Label>Question</Label>
         <TextInput
           onChangeText={this._handleQuestionChange}
-          placeholder="Question"
+          placeholder="Enter a question"
         />
+        <Label>Answer</Label>
         <TextInput
           onChangeText={this._handleAnswerChange}
-          placeholder="Answer"
+          placeholder="Enter an Answer"
         />
         <Button onPress={this._createCard} text="Create Card" />
       </ViewWrapper>

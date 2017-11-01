@@ -7,13 +7,7 @@ import { createDeck } from "../actions";
 import Button from "../components/Button";
 import TextInput from "../components/TextInput";
 import ViewWrapper from "../components/ViewWrapper";
-
-const styles = StyleSheet.create({
-  label: {
-    fontSize: 16,
-    marginBottom: 10
-  }
-});
+import Label from "../components/Label";
 
 class Create extends Component {
   constructor(...args) {
@@ -33,7 +27,7 @@ class Create extends Component {
   render() {
     return (
       <ViewWrapper>
-        <Text style={styles.label}>Create a new Deck</Text>
+        <Label>Name</Label>
         <TextInput
           onChangeText={this._handleTextChange}
           placeholder="Name of new Deck"

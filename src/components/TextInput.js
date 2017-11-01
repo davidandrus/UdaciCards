@@ -5,8 +5,6 @@ const styles = StyleSheet.create({
   textInput: {
     fontSize: 16,
     padding: 5,
-    marginLeft: 5,
-    marginRight: 5,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: "black"
