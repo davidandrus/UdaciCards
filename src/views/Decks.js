@@ -7,17 +7,14 @@ import Button from "../components/Button";
 
 const styles = StyleSheet.create({
   view: {
-    paddingTop: 20
-  },
-  decks: {
-    marginBottom: 20
+    paddingTop: 10
   }
 });
 
 const Decks = ({ navigation, decks }) => (
   <ScrollView>
     <View style={styles.view}>
-      <View style={styles.decks}>
+      <View>
         {decks.map(deck => (
           <Deck
             key={deck.name}
