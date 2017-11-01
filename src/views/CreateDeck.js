@@ -25,6 +25,9 @@ class Create extends Component {
   };
 
   render() {
+    const { text } = this.state;
+    const showButton = !!text.trim();
+
     return (
       <ViewWrapper>
         <Label>Name</Label>
@@ -32,7 +35,7 @@ class Create extends Component {
           onChangeText={this._handleTextChange}
           placeholder="Name of new Deck"
         />
-        <Button onPress={this._createDeck} text="Create Deck" />
+        {showButton && <Button onPress={this._createDeck} text="Create Deck" />}
       </ViewWrapper>
     );
   }

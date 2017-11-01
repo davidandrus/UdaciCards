@@ -34,6 +34,9 @@ class Create extends Component {
   };
 
   render() {
+    const { question, answer } = this.state;
+    const showButton = !!(question.trim() && answer.trim());
+
     return (
       <ViewWrapper>
         <Label>Question</Label>
@@ -46,7 +49,7 @@ class Create extends Component {
           onChangeText={this._handleAnswerChange}
           placeholder="Enter an Answer"
         />
-        <Button onPress={this._createCard} text="Create Card" />
+        {showButton && <Button onPress={this._createCard} text="Create Card" />}
       </ViewWrapper>
     );
   }
