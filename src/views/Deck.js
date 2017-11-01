@@ -29,7 +29,7 @@ const Deck = ({ name, cards, onAddClick, onStartQuiz }) => {
         {cards.length} {cards.length === 1 ? "card" : "cards"}
       </Text>
       <Button text="Add Card" onPress={onAddClick} />
-      <Button text="Start Quiz" onPress={onStartQuiz} />
+      {cards.length > 0 && <Button text="Start Quiz" onPress={onStartQuiz} />}
     </ViewWrapper>
   );
 };

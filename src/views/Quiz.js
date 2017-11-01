@@ -1,6 +1,6 @@
 import React from "react";
 import { bindActionCreators } from "redux";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 
 import { nextSlide, showAnswer, endQuiz, startQuiz } from "../actions";
@@ -8,6 +8,35 @@ import store from "../store";
 
 import Button from "../components/Button";
 import ViewWrapper from "../components/ViewWrapper";
+
+const styles = StyleSheet.create({
+  questionOf: {
+    fontSize: 14,
+    marginBottom: 20,
+    textAlign: "center"
+  },
+  question: {
+    fontSize: 36,
+    fontWeight: "bold",
+    marginBottom: 20,
+    textAlign: "center"
+  },
+  answerWrapper: {
+    backgroundColor: "#EEEEEE",
+    marginBottom: 20,
+    padding: 10
+  },
+  answer: {
+    textAlign: "center",
+    fontSize: 24
+  },
+  results: {
+    fontSize: 50,
+    textAlign: "center",
+    marginBottom: 50,
+    marginTop: 20
+  }
+});
 
 const Quiz = ({
   noRender,
@@ -36,23 +65,27 @@ const Quiz = ({
       <Text>Quiz for: {name}</Text>
       {showResults && (
         <View>
-          <Text>{percentageCorrect}%</Text>
+          <Text style={styles.results}>
+            You answered {percentageCorrect}% correctly{" "}
+          </Text>
           <Button onPress={restartQuiz} text="Restart Quiz" />
           <Button onPress={finishQuiz} text="Go back to deck" />
         </View>
       )}
       {showQuestion && (
         <View>
-          <Text>
+          <Text style={styles.questionOf}>
             Question {slide} of {questionCount}
           </Text>
-          <Text>{question}</Text>
+          <Text style={styles.question}>{question}</Text>
         </View>
       )}
       {showAnswerButton && <Button text="Show Answer" onPress={showAnswer} />}
       {answerVisible && (
         <View>
-          <Text>{answer}</Text>
+          <View style={styles.answerWrapper}>
+            <Text style={styles.answer}>{answer}</Text>
+          </View>
           <Button text="Correct" onPress={setCorrect} />
           <Button text="Incorrect" onPress={setIncorrect} />
         </View>
