@@ -4,16 +4,11 @@ import { connect } from "react-redux";
 
 import Deck from "../components/Deck";
 import Button from "../components/Button";
-
-import { commonViewStyles } from "../constants";
-
-const styles = StyleSheet.create({
-  view: commonViewStyles
-});
+import ViewWrapper from "../components/ViewWrapper";
 
 const Decks = ({ navigation, decks }) => (
-  <ScrollView>
-    <View style={styles.view}>
+  <ViewWrapper>
+    <ScrollView>
       <View>
         {decks.map(deck => (
           <Deck
@@ -28,8 +23,8 @@ const Decks = ({ navigation, decks }) => (
         onPress={() => navigation.navigate("CreateDeck")}
         text="Create New Deck"
       />
-    </View>
-  </ScrollView>
+    </ScrollView>
+  </ViewWrapper>
 );
 
 const mapStateToProps = ({ decks }) => ({

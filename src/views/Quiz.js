@@ -7,6 +7,7 @@ import { nextSlide, showAnswer, endQuiz, startQuiz } from "../actions";
 import store from "../store";
 
 import Button from "../components/Button";
+import ViewWrapper from "../components/ViewWrapper";
 
 const Quiz = ({
   noRender,
@@ -31,7 +32,7 @@ const Quiz = ({
     return null;
   }
   return (
-    <View>
+    <ViewWrapper>
       <Text>Quiz for: {name}</Text>
       {showResults && (
         <View>
@@ -56,7 +57,7 @@ const Quiz = ({
           <Button text="Incorrect" onPress={setIncorrect} />
         </View>
       )}
-    </View>
+    </ViewWrapper>
   );
 };
 

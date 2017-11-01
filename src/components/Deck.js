@@ -4,6 +4,8 @@ import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
 const Styles = StyleSheet.create({
   touchable: {
     backgroundColor: "white",
+    borderWidth: 1,
+    borderColor: "#B3E5FC",
     marginBottom: 10,
     paddingBottom: 10,
     paddingTop: 10

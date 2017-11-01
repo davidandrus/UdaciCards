@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { createCard } from "../actions";
 import Button from "../components/Button";
 import TextInput from "../components/TextInput";
+import ViewWrapper from "../components/ViewWrapper";
 
 class Create extends Component {
   constructor(...args) {
@@ -33,7 +34,7 @@ class Create extends Component {
 
   render() {
     return (
-      <View>
+      <ViewWrapper>
         <Text>Create new card</Text>
         <TextInput
           onChangeText={this._handleQuestionChange}
@@ -44,7 +45,7 @@ class Create extends Component {
           placeholder="Answer"
         />
         <Button onPress={this._createCard} text="Create Card" />
-      </View>
+      </ViewWrapper>
     );
   }
 }

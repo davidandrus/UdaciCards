@@ -6,10 +6,9 @@ import { connect } from "react-redux";
 import { createDeck } from "../actions";
 import Button from "../components/Button";
 import TextInput from "../components/TextInput";
-import { commonViewStyles } from "../constants";
+import ViewWrapper from "../components/ViewWrapper";
 
 const styles = StyleSheet.create({
-  view: commonViewStyles,
   label: {
     fontSize: 16,
     marginBottom: 10
@@ -33,14 +32,14 @@ class Create extends Component {
 
   render() {
     return (
-      <View style={styles.view}>
+      <ViewWrapper>
         <Text style={styles.label}>Create a new Deck</Text>
         <TextInput
           onChangeText={this._handleTextChange}
           placeholder="Name of new Deck"
         />
         <Button onPress={this._createDeck} text="Create Deck" />
-      </View>
+      </ViewWrapper>
     );
   }
 }
