@@ -11,19 +11,34 @@ import Quiz from "./views/Quiz";
 
 const Navigator = StackNavigator({
   Home: {
-    screen: Decks
+    screen: Decks,
+    navigationOptions: {
+      headerTitle: "Decks"
+    }
   },
   Deck: {
-    screen: Deck
+    screen: Deck,
+    navigationOptions: {
+      title: "Deck"
+    }
   },
   CreateDeck: {
-    screen: CreateDeck
+    screen: CreateDeck,
+    navigationOptions: {
+      headerTitle: "Create Deck"
+    }
   },
   CreateCard: {
-    screen: CreateCard
+    screen: CreateCard,
+    navigationOptions: {
+      headerTitle: "Create Card"
+    }
   },
   Quiz: {
-    screen: Quiz
+    screen: Quiz,
+    navigationOptions: {
+      headerTitle: "Quiz"
+    }
   }
 });
 

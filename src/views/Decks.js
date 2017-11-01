@@ -40,5 +40,3 @@ const mapStateToProps = ({ decks }) => ({
 });
 
 export default connect(mapStateToProps)(Decks);
-
-// @TODO - add flow types for decks
