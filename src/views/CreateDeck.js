@@ -1,11 +1,20 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import { createDeck } from "../actions";
 import Button from "../components/Button";
 import TextInput from "../components/TextInput";
+import { commonViewStyles } from "../constants";
+
+const styles = StyleSheet.create({
+  view: commonViewStyles,
+  label: {
+    fontSize: 16,
+    marginBottom: 10
+  }
+});
 
 class Create extends Component {
   constructor(...args) {
@@ -23,10 +32,9 @@ class Create extends Component {
   };
 
   render() {
-    console.log("rendering", this.props);
     return (
-      <View>
-        <Text>Create a new Deck</Text>
+      <View style={styles.view}>
+        <Text style={styles.label}>Create a new Deck</Text>
         <TextInput
           onChangeText={this._handleTextChange}
           placeholder="Name of new Deck"

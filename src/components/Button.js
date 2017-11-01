@@ -5,13 +5,10 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#039BE5",
     height: 40,
-    marginBottom: 20,
+    marginBottom: 10,
     marginLeft: "auto",
     marginRight: "auto",
     width: 150
-  },
-  touchable: {
-    height: 40
   },
   buttonText: {
     color: "white",
@@ -25,7 +22,7 @@ const underlayColor = "#0277BD";
 const Button = ({ text, onPress }) => (
   <View style={styles.button}>
     <TouchableHighlight
-      style={styles.touchable}
+      style={styles.button}
       underlayColor={underlayColor}
       onPress={onPress}
     >

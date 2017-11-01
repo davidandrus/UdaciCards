@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import Deck from "../components/Deck";
 import Button from "../components/Button";
 
+import { commonViewStyles } from "../constants";
+
 const styles = StyleSheet.create({
-  view: {
-    paddingTop: 10
-  }
+  view: commonViewStyles
 });
 
 const Decks = ({ navigation, decks }) => (
