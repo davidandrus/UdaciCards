@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, ScrollView } from "react-native";
 import { connect } from "react-redux";
 
 import Deck from "../components/Deck";
@@ -15,22 +15,24 @@ const styles = StyleSheet.create({
 });
 
 const Decks = ({ navigation, decks }) => (
-  <View style={styles.view}>
-    <View style={styles.decks}>
-      {decks.map(deck => (
-        <Deck
-          key={deck.name}
-          //@TODO should propbably update to use an ID instead
-          onPress={() => navigation.navigate("Deck", { id: deck.id })}
-          {...deck}
-        />
-      ))}
+  <ScrollView>
+    <View style={styles.view}>
+      <View style={styles.decks}>
+        {decks.map(deck => (
+          <Deck
+            key={deck.name}
+            //@TODO should propbably update to use an ID instead
+            onPress={() => navigation.navigate("Deck", { id: deck.id })}
+            {...deck}
+          />
+        ))}
+      </View>
+      <Button
+        onPress={() => navigation.navigate("CreateDeck")}
+        text="Create New Deck"
+      />
     </View>
-    <Button
-      onPress={() => navigation.navigate("CreateDeck")}
-      text="Create New Deck"
-    />
-  </View>
+  </ScrollView>
 );
 
 const mapStateToProps = ({ decks }) => ({
