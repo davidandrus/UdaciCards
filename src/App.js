@@ -9,6 +9,8 @@ import CreateDeck from "./views/CreateDeck";
 import CreateCard from "./views/CreateCard";
 import Quiz from "./views/Quiz";
 
+const getDeckById = id => store.getState().decks.find(deck => deck.id === id);
+
 const Navigator = StackNavigator({
   Home: {
     screen: Decks,
@@ -18,8 +20,9 @@ const Navigator = StackNavigator({
   },
   Deck: {
     screen: Deck,
-    navigationOptions: {
-      title: "Deck"
+    navigationOptions: ({ navigation }) => {
+      const deck = getDeckById(navigation.state.params.id);
+      return { title: `${deck.name}` };
     }
   },
   CreateDeck: {
@@ -30,14 +33,16 @@ const Navigator = StackNavigator({
   },
   CreateCard: {
     screen: CreateCard,
-    navigationOptions: {
-      headerTitle: "Create Card"
+    navigationOptions: ({ navigation }) => {
+      const deck = getDeckById(navigation.state.params.id);
+      return { title: `Add card to ${deck.name}` };
     }
   },
   Quiz: {
     screen: Quiz,
-    navigationOptions: {
-      headerTitle: "Quiz"
+    navigationOptions: ({ navigation }) => {
+      const deck = getDeckById(navigation.state.params.id);
+      return { title: `${deck.name} Quiz` };
     }
   }
 });

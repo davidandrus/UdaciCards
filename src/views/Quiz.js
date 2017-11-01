@@ -62,7 +62,6 @@ const Quiz = ({
   }
   return (
     <ViewWrapper>
-      <Text>Quiz for: {name}</Text>
       {showResults && (
         <View>
           <Text style={styles.results}>
