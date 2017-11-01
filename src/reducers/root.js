@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 
 import decks from "./decks";
+import quiz from "./quiz";
 
 const reducer = combineReducers({
-  decks
+  decks,
+  quiz
 });
 
 export default reducer;
