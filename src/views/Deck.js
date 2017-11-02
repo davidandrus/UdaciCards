@@ -25,7 +25,6 @@ const Deck = ({ name, cards, onAddClick, onStartQuiz }) => {
     <ViewWrapper>
       <Text style={styles.title}>{name}</Text>
       <Text style={styles.subTitle}>
-        {/* @TODO this is redundant, should move into shared helper or something */}
         {cards.length} {cards.length === 1 ? "card" : "cards"}
       </Text>
       <Button text="Add Card" onPress={onAddClick} />
@@ -40,7 +39,6 @@ const mapStateToProps = (state, { navigation }) => {
     ...state.decks.find(deck => deck.id === deckId),
     onAddClick: () => navigation.navigate("CreateCard", { id: deckId }),
     onStartQuiz: () => {
-      // @TODO - this is gross, should route everything through redux
       store.dispatch(startQuiz(deckId));
       navigation.navigate("Quiz", { id: deckId });
     }

@@ -7,6 +7,8 @@ import {
   NEXT_SLIDE
 } from "./actionNames";
 
+import { setLocalNotification, clearLocalNotification } from "../helpers";
+
 const createDeck = name => ({
   type: CREATE_DECK,
   payload: { name }
@@ -17,10 +19,14 @@ const createCard = payload => ({
   payload
 });
 
-const startQuiz = id => ({
-  type: START_QUIZ,
-  payload: { id }
-});
+const startQuiz = id => {
+  clearLocalNotification();
+  setLocalNotification();
+  return {
+    type: START_QUIZ,
+    payload: { id }
+  };
+};
 
 const endQuiz = () => ({
   type: END_QUIZ

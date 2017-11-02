@@ -9,6 +9,8 @@ import TextInput from "../components/TextInput";
 import ViewWrapper from "../components/ViewWrapper";
 import Label from "../components/Label";
 
+import { setLocalNotification } from "../helpers";
+
 class Create extends Component {
   constructor(...args) {
     super(...args);

@@ -96,7 +96,6 @@ const Quiz = ({
 const mapStateToProps = (state, { navigation }) => {
   const { id: deckId, slide, correctCount, answerVisible } = state.quiz;
 
-  // @TODO - this is gross refactor at some point
   // prevents rendering of component when quiz is being ended
   if (!deckId) {
     return { noRender: true };
@@ -105,16 +104,15 @@ const mapStateToProps = (state, { navigation }) => {
   const deck = state.decks.find(deck => deck.id === deckId);
   const card = deck.cards[slide];
   const questionCount = deck.cards.length;
-  console.log({ navigation });
 
   if (!card) {
     return {
       finishQuiz: () => {
-        // @TODO - this is another case of grossness that should be fixed by implementing react-navigation in redux.
         navigation.goBack();
         store.dispatch(endQuiz());
       },
       restartQuiz: () => {
+        store.dispatch(endQuiz());
         store.dispatch(startQuiz(deckId));
       },
       name: deck.name,

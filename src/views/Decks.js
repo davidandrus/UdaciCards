@@ -13,7 +13,6 @@ const Decks = ({ navigation, decks }) => (
         {decks.map(deck => (
           <Deck
             key={deck.id}
-            //@TODO should propbably update to use an ID instead
             onPress={() => navigation.navigate("Deck", { id: deck.id })}
             {...deck}
           />
