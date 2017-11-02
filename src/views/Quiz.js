@@ -4,7 +4,7 @@ import { Text, View, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 
 import { nextSlide, showAnswer, endQuiz, startQuiz } from "../actions";
-import store from "../store";
+import { store } from "../store";
 
 import Button from "../components/Button";
 import ViewWrapper from "../components/ViewWrapper";

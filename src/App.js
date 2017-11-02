@@ -1,8 +1,9 @@
 import React from "react";
 import { StackNavigator } from "react-navigation";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/es/integration/react";
 
-import store from "./store";
+import { store, persistor } from "./store";
 import Decks from "./views/Decks";
 import Deck from "./views/Deck";
 import CreateDeck from "./views/CreateDeck";
@@ -49,7 +50,9 @@ const Navigator = StackNavigator({
 
 const App = () => (
   <Provider store={store}>
-    <Navigator />
+    <PersistGate persistor={persistor}>
+      <Navigator />
+    </PersistGate>
   </Provider>
 );
 

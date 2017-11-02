@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Text, View, StyleSheet } from "react-native";
 
-import store from "../store";
+import { store } from "../store";
 import { startQuiz } from "../actions";
 import Button from "../components/Button";
 import ViewWrapper from "../components/ViewWrapper";
