@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
+import { store } from "../store";
 import { createDeck } from "../actions";
 import Button from "../components/Button";
 import TextInput from "../components/TextInput";
@@ -22,8 +23,9 @@ class Create extends Component {
   };
 
   _createDeck = () => {
-    this.props.createDeck(this.state.text);
-    this.props.navigateToDecks();
+    store.dispatch(createDeck(this.state.text));
+    const [deck] = store.getState().decks;
+    this.props.navigation.navigate("Deck", { id: deck.id });
   };
 
   render() {
@@ -43,11 +45,4 @@ class Create extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ createDeck }, dispatch);
-
-const mapStateToProps = (state, { navigation }) => ({
-  navigateToDecks: navigation.goBack
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Create);
+export default connect()(Create);
